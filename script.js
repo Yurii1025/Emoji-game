@@ -206,25 +206,25 @@ let secondCard = null;
 let lockBoard = false;
 let score = 0;
 
-/* 🔀 Перемешивание массива */
+/* Array shuffling */
 function shuffle(array) {
     return array.sort(() => Math.random() - 0.5);
 }
 
-/* 🎮 Запуск игры */
+/* Launching the game */
 function startGame() {
     score = 0;
     scoreEl.textContent = score;
     resetBoard();
     cardContainer.classList.add("bottom_container");
 
-    // 1. Выбираем 3 случайные карты
+    // 1. Choose 6 random cards
     const selected = shuffle([...emojiArray]).slice(0, 6);
 
-    // 2. Дублируем
+    // 2. Duplicate
     const gameCards = shuffle([...selected, ...selected]);
 
-    // 3. Раскладываем по ячейкам
+    // 3. We arrange them into cells
     cells.forEach((cell, index) => {
         cell.dataset.image = gameCards[index].image;
         cell.innerHTML = "";
@@ -234,7 +234,7 @@ function startGame() {
     });
 }
 
-/* 🖱️ Клик по карте */
+/* Buttons click */
 function handleCardClick() {
     if (lockBoard) return;
     if (this === firstCard) return;
@@ -251,7 +251,7 @@ function handleCardClick() {
     checkForMatch();
 }
 
-/* 🖼️ Показать карту */
+/* Show card */
 function showCard(card) {
     const img = document.createElement("img");
     img.src = `./media/emoji//${card.dataset.image}`;
@@ -259,7 +259,7 @@ function showCard(card) {
     card.appendChild(img);
 }
 
-/* ❓ Проверка совпадения */
+/* Match check*/
 function checkForMatch() {
     const isMatch =
         firstCard.dataset.image === secondCard.dataset.image;
@@ -267,7 +267,7 @@ function checkForMatch() {
     isMatch ? disableCards() : hideCards();
 }
 
-/* ✅ Совпали */
+/* Match */
 function disableCards() {
     firstCard.classList.add("matched");
     secondCard.classList.add("matched");
@@ -278,7 +278,7 @@ function disableCards() {
     resetTurn();
 }
 
-/* ❌ Не совпали */
+/* Didn't match */
 function hideCards() {
     lockBoard = true;
 
@@ -291,12 +291,12 @@ function hideCards() {
     }, 800);
 }
 
-/* 🔄 Сброс хода */
+/* Reset progress */
 function resetTurn() {
     [firstCard, secondCard, lockBoard] = [null, null, false];
 }
 
-/* 🔁 Сброс игры */
+/* Reset the game*/
 function resetBoard() {
     cells.forEach(cell => {
         cell.innerHTML = "";
@@ -306,6 +306,6 @@ function resetBoard() {
     resetTurn();
 }
 
-/* 🎯 Кнопки */
+/* Buttons */
 startBtn.addEventListener("click", startGame);
 resetBtn.addEventListener("click", startGame);
