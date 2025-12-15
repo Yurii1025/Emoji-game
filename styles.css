@@ -1,0 +1,147 @@
+/* Reset styles */
+*,
+*::before,
+*::after {
+	padding: 0;
+	margin: 0;
+	border: 0;
+	box-sizing: border-box;
+}
+a {
+	text-decoration: none;
+    color: inherit;
+}
+ul, ol, li {
+	list-style: none;
+}
+img {
+	vertical-align: top;
+}
+h1, h2, h3, h4, h5, h6 {
+	font-weight: inherit;
+	font-size: inherit;
+}
+html, body {
+    height: 100%;
+    line-height: 1;
+}
+button, input {
+    cursor: pointer;
+    background-color: inherit;
+}
+/* Reset styles */
+.emoji-game_container {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    width: 100%;
+    background: url('./media/bg/glass_cherries_art-wallpaper-5120x2880.jpg');
+    background-size: cover;
+}
+.top-part_container {
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+}
+.game_name {
+    color: #ffffff;
+    text-align: center;
+    font-size: 60px;
+    font-weight: 600;
+    margin-top: 40px;
+    margin-bottom: 30px;
+    padding: 20px;
+    background-color: #ffffff6c;
+    border-radius: 10px;
+    border: 1px solid #fff;
+}
+.score {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    padding: 30px;
+    width: 70px; height: 50px;
+    font-size: 30px;
+    background-color: #ffffff7a;
+    border-radius: 10px;
+    margin: 0 auto;
+    border: 1px solid #fff;
+}
+.button_container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    margin: 30px auto;
+}
+.s-btn {
+    padding: 10px;
+    color: #fff;
+    font-size: 24px;
+    background-color: #009a0d;
+    border-radius: 10px;
+    border: 1px solid #fff;
+    transition: all 0.3s ease;
+}
+.s-btn:hover {
+    background-color: #00ff15;
+}
+.r-btn {
+    padding: 10px;
+    color: #fff;
+    font-size: 24px;
+    background-color: #9a0000;
+    border-radius: 10px;
+    border: 1px solid #fff;
+    transition: all 0.3s ease;
+}
+.r-btn:hover {
+    background-color: #ff0000;
+}
+.bottom_container-d {
+    opacity: 0;
+}
+.bottom_container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows:repeat(3, 1fr);
+    gap: 20px;
+    max-width: 1000px;
+    margin: 0 auto;
+    opacity: 1;
+    transition: all 0.5s ease;
+}
+.grid_cell {
+    /* background: url('./media/fruits/allec-gomes-ftEtxZjEJX8-unsplash.jpg'); */
+    background-size: cover;
+    width: 150px; height: 150px;
+    border-radius: 5px;
+    font-size: 130px;
+    color: #595959;
+    text-align: center;
+    align-items: center;
+    transition: all 0.4s ease;
+}
+.grid_cell:hover {
+    transform: scale(1.07);
+    box-shadow: 0px 0px 15px 5px #fff;
+}
+.grid_cell.matched {
+    visibility: hidden;
+}
+
+.emo-img {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-self: center;
+    width: 140px;
+    height: 140px;
+    padding: 5px;
+}
+.emo-img img {
+    width: 100%;
+    object-fit: cover;
+}
