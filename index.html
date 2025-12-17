@@ -6,31 +6,185 @@
     <title>Emoji game😉</title>
     <link rel="stylesheet" href="./styles.css">
     <script src="./script.js" defer></script>
+    <link href="https://fonts.googleapis.com/css2?family=Paytone+One&display=swap" rel="stylesheet">
 </head>
 <body>
-    <section class="emoji-game_container">
-        <div class="top-part_container">
-            <h1 class="game_name">Emoji game for memory</h1>
-            <div class="score" id="score">0</div>
-            <div class="button_container">
-                <button class="s-btn" id="start_btn">Start game</button>
-                <button class="r-btn" id="reset_btn">Reset game</button>
+    <div class="wrapper">
+        <header class="header-container">
+            <div class="logo">
+                <img class="logo_img" src="./media/animated/warm-smile.webp" alt="logo">
+                <h1 class="game_name">Emoji game for memory</h1>
+                <img class="logo_img" src="./media/animated/wink.webp" alt="logo">
             </div>
-        </div>
-        <div class="bottom_container-d" id="bottom_container">
-            <div class="grid_cell" id="cell-1"></div>
-            <div class="grid_cell" id="cell-2"></div>
-            <div class="grid_cell" id="cell-3"></div>
-            <div class="grid_cell" id="cell-4"></div>
-            <div class="grid_cell" id="cell-5"></div>
-            <div class="grid_cell" id="cell-6"></div>
-            <div class="grid_cell" id="cell-6"></div>
-            <div class="grid_cell" id="cell-6"></div>
-            <div class="grid_cell" id="cell-6"></div>
-            <div class="grid_cell" id="cell-6"></div>
-            <div class="grid_cell" id="cell-6"></div>
-            <div class="grid_cell" id="cell-6"></div>
-        </div>
-    </section>
-</body>
+            <nav class="nav">
+                <ul class="menu_list">
+                    <li class="menu_item">
+                        <button class="menu_btn" id="menuBtn">Menu</button>
+                    </li>
+                    <li class="menu_item">
+                        <button class="menu_btn" id="rulesBtn">Rules</button>
+                    </li>
+                </ul>
+            </nav>
+        </header>
+        <main class="main_container">
+            <section class="e-game_container">
+                <div class="top_part">
+                    <div class="score-timer">
+                        <div class="score_container">
+                            <h3 class="score_text">Score</h3>
+                            <div class="score" id="score">0</div>
+                        </div>
+                        <div class="timer_container">
+                            <h3 class="timer_text">Timer</h3>
+                            <div class="timer" id="timer">00:00</div>
+                        </div>
+                    </div>
+                    <div class="button_container">
+                        <button class="s-btn" id="start_btn">Start game</button>
+                        <button class="r-btn" id="reset_btn">Reset game</button>
+                    </div>
+                </div>
+            </section>
+            <section class="bottom_part" id="bottom_part">
+                <div class="card from-top">
+                    <div class="card_inner">
+                        <div class="card_front" id="card_front">
+                            <div class="card_text"></div>
+                        </div>
+                        <div class="card_back"></div>
+                    </div>
+                </div>
+                <div class="card from-top">
+                    <div class="card_inner">
+                        <div class="card_front" id="card_front">
+                            <div class="card_text"></div>
+                        </div>
+                        <div class="card_back"></div>
+                    </div>
+                </div>
+                <div class="card from-top">
+                    <div class="card_inner">
+                        <div class="card_front" id="card_front">
+                            <div class="card_text"></div>
+                        </div>
+                        <div class="card_back"></div>
+                    </div>
+                </div>
+                <div class="card from-top">
+                    <div class="card_inner">
+                        <div class="card_front" id="card_front">
+                            <div class="card_text"></div>
+                        </div>
+                        <div class="card_back"></div>
+                    </div>
+                </div>
+                <div class="card from-left">
+                    <div class="card_inner">
+                        <div class="card_front" id="card_front">
+                            <div class="card_text"></div>
+                        </div>
+                        <div class="card_back"></div>
+                    </div>
+                </div>
+                <div class="card from-left">
+                    <div class="card_inner">
+                        <div class="card_front" id="card_front">
+                            <div class="card_text"></div>
+                        </div>
+                        <div class="card_back"></div>
+                    </div>
+                </div>
+                <div class="card from-right">
+                    <div class="card_inner">
+                        <div class="card_front" id="card_front">
+                            <div class="card_text"></div>
+                        </div>
+                        <div class="card_back"></div>
+                    </div>
+                </div>
+                <div class="card from-right">
+                    <div class="card_inner">
+                        <div class="card_front" id="card_front">
+                            <div class="card_text"></div>
+                        </div>
+                        <div class="card_back"></div>
+                    </div>
+                </div>
+                <div class="card from-bottom">
+                    <div class="card_inner">
+                        <div class="card_front" id="card_front">
+                            <div class="card_text"></div>
+                        </div>
+                        <div class="card_back"></div>
+                    </div>
+                </div>
+                <div class="card from-bottom">
+                    <div class="card_inner">
+                        <div class="card_front" id="card_front">
+                            <div class="card_text"></div>
+                        </div>
+                        <div class="card_back"></div>
+                    </div>
+                </div>
+                <div class="card from-bottom">
+                    <div class="card_inner">
+                        <div class="card_front" id="card_front">
+                            <div class="card_text"></div>
+                        </div>
+                        <div class="card_back"></div>
+                    </div>
+                </div>
+                <div class="card from-bottom">
+                    <div class="card_inner">
+                        <div class="card_front" id="card_front">
+                            <div class="card_text"></div>
+                        </div>
+                        <div class="card_back"></div>
+                    </div>
+                </div>
+                <!-- <div class="card from-bottom">
+                    <div class="card_inner">
+                        <div class="card_front" id="card_front">
+                            <div class="card_text"></div>
+                        </div>
+                        <div class="card_back"></div>
+                    </div>
+                </div>
+                <div class="card from-bottom">
+                    <div class="card_inner">
+                        <div class="card_front" id="card_front">
+                            <div class="card_text"></div>
+                        </div>
+                        <div class="card_back"></div>
+                    </div>
+                </div>
+                <div class="card from-bottom">
+                    <div class="card_inner">
+                        <div class="card_front" id="card_front">
+                            <div class="card_text"></div>
+                        </div>
+                        <div class="card_back"></div>
+                    </div>
+                </div>
+                <div class="card from-bottom">
+                    <div class="card_inner">
+                        <div class="card_front" id="card_front">
+                            <div class="card_text"></div>
+                        </div>
+                        <div class="card_back"></div>
+                    </div>
+                </div> -->
+            </section>
+            <div class="modal" id="wModal">
+                <div class="modal_content" id="modal_content">
+                    <div class="modal_message" id="modal_message"></div>
+                    <button class="close_modal" id="close_modal">x</button>
+                </div>
+            </div>
+        </main>
+        <footer class="footer">All rights reserved 2025</footer>
+    </div>
+    
+</body> 
 </html>
