@@ -93,7 +93,7 @@ function startGame() {
     resetBoard();
     cardContainer.classList.add("active");
 
-    // 1. Choose 8 random cards
+    // 1. Choose 6 random cards
     const selected = shuffle([...emojiArray]).slice(0, 6);
 
     // 2. Duplicate
@@ -202,6 +202,7 @@ function hideCards() {
     }, 1200);
 }
 
+/* Check for end of the game */
 function checkWin() {
     const matchedCards = document.querySelectorAll(".card.matched");
 
@@ -304,7 +305,7 @@ menuBtn.addEventListener("click", () => {
                         </div>
                     </div>`;
 
-    initColorButtons(); // 👈 после создания DOM
+    initColorButtons(); // after DOM creation
 });
 
 
@@ -325,7 +326,7 @@ function initColorButtons() {
     // blueBtn.addEventListener("click", () => {
     //     selectedCardColor = "var(--blue)";
     //     cFront.style.background = selectedCardColor;
-    //     applyCardColor(); // 👈 обновляем поле
+    //     applyCardColor();
     // });
 
     // violetBtn.addEventListener("click", () => {
@@ -374,6 +375,8 @@ function initColorButtons() {
     //     cBack.style.background = selectedCardColor2;
     //     applyCardColor();
     // });
+
+    /*------------------------Colors settings-----------------------------------*/
     const previewFront = document.querySelector(".preview_front");
     const previewBack = document.querySelector(".preview_back");
 
