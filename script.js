@@ -1,4 +1,4 @@
-
+/*---------------------Emoji array-----------------------*/
 const emojiArray = [
     { emotionTags: ["warm-smile"], image: "warm-smile.webp" },
     { emotionTags: ["screaming"], image: "screaming.webp" },
@@ -21,7 +21,9 @@ const emojiArray = [
     { emotionTags: ["melting"], image: "melting.webp" },
     { emotionTags: ["rofl"], image: "rofl.webp" }
 ];
+/*---------------------Emoji array-----------------------*/
 
+/*---------------------Variables-----------------------*/
 const cells = document.querySelectorAll(".card");
 const startBtn = document.getElementById("start_btn");
 const resetBtn = document.getElementById("reset_btn");
@@ -35,12 +37,8 @@ const timerEl = document.getElementById("timer");
 const rulBtn = document.getElementById("rulesBtn");
 const menuBtn = document.getElementById("menuBtn");
 const modalM = document.getElementById("modal_content");
-let selectedCardColor = "var(--blue)";
-let selectedCardColor2 = "var(--gold)"; // цвет по умолчанию
-// const rBtn = document.getElementById("red");
-// const gBtn = document.getElementById("green");
-// const yBtn = document.getElementById("yellow");
-// const cFront = document.getElementById("card_front");
+let selectedCardColor = "var(--blue)";  // default card color
+let selectedCardColor2 = "var(--cold)"; // default card color
 
 let firstCard = null;
 let secondCard = null;
@@ -48,6 +46,7 @@ let lockBoard = false;
 let score = 0;
 let startTime = null;
 let timerInterval = null;
+/*---------------------Variables-----------------------*/
 
 /*----TIMER-----*/
 function startTimer() {
@@ -89,8 +88,8 @@ function applyCardColor() {
 function startGame() {
     score = 0;
     scoreEl.textContent = score;
-    stopTimer();          // если перезапуск
-    startTimer();         // ⏱ старт
+    stopTimer();          // if restart
+    startTimer();         // start
     resetBoard();
     cardContainer.classList.add("active");
 
@@ -121,7 +120,7 @@ function startGame() {
         // });
         setTimeout(() => {
         cell.classList.add('show');
-    }, index * 150); // задержка для красивого эффекта
+    }, index * 150); // delay for a beautiful effect
 
     });
 }
@@ -132,7 +131,7 @@ function handleCardClick() {
     if (this === firstCard) return;
     if (this.classList.contains("matched")) return;
 
-    this.classList.add("is-flipped"); // ✅ ТОЛЬКО ЗДЕСЬ
+    this.classList.add("is-flipped");
     showCard(this);
 
     if (!firstCard) {
@@ -155,7 +154,7 @@ function handleCardClick() {
 function showCard(card) {
     const cardBack = card.querySelector(".card_back");
 
-    // чтобы не создавать картинку повторно
+    // to avoid creating the image again
     if (cardBack.querySelector("img")) return;
 
     const img = document.createElement("img");
@@ -206,7 +205,7 @@ function hideCards() {
 function checkWin() {
     const matchedCards = document.querySelectorAll(".card.matched");
 
-    // Всего карт = cells.length
+    // Total cards = cells.length
     if (matchedCards.length === cells.length) {
         endGame();
     }
@@ -259,14 +258,15 @@ rulBtn.addEventListener("click", () => {
     winModal.classList.add("active");
     modMess.innerHTML = `<h3 class="rules">Rules:</h3>
                         <p class="rText">1 match = 5 points</p>
-                        <p class="rText">1 miss = -1 points</p>`
+                        <p class="rText">1 miss = -1 points</p>
+                        <p class="roText">To start the game, press Enter, Space or Start Game</p>`
 });
 menuBtn.addEventListener("click", () => {
     winModal.classList.add("active");
     modMess.innerHTML = `<div class="colors">
                             <h2 class="choose_color">Choose front color</h2>
                             <div class="color_btn-container">
-                                <button class="blue" id="blue">blue</button>
+                                <button class="blue" id="blue">pink</button>
                                 <button class="violet" id="violet">violet</button>
                                 <button class="green" id="green">green</button>
                                 <button class="red" id="red">red</button>
@@ -289,7 +289,7 @@ menuBtn.addEventListener("click", () => {
                                 <button class="gold" id="gold">gold</button>
                                 <button class="cold" id="cold">cold</button>
                                 <button class="eco_green" id="eco_green">eco green</button>
-                                <button class="new_violet" id="new_violet">new violet</button>
+                                <button class="new_violet" id="new_violet">rainbow</button>
                                 <button class="varm_red" id="varm_red">varm red</button>
                             </div>
                             <div class="cCardCont">
@@ -307,35 +307,18 @@ menuBtn.addEventListener("click", () => {
     initColorButtons(); // 👈 после создания DOM
 });
 
-// function initColorButtons() {
-//     const rBtn = document.getElementById("red");
-//     const gBtn = document.getElementById("green");
-//     const yBtn = document.getElementById("yellow");
-//     const cFront = document.getElementById("card_front");
 
-//     rBtn.addEventListener("click", () => {
-//         cFront.style.background = "var(--pink)";
-//     });
-
-//     gBtn.addEventListener("click", () => {
-//         cFront.style.background = "var(--green)";
-//     });
-
-//     yBtn.addEventListener("click", () => {
-//         cFront.style.background = "var(--yellow)";
-//     });
-// }
 function initColorButtons() {
-    const blueBtn = document.getElementById("blue");
-    const violetBtn = document.getElementById("violet");
-    const greenBtn = document.getElementById("green");
-    const redBtn = document.getElementById("red");
-    const orangeBtn = document.getElementById("orange");
-    const goldBtn = document.getElementById("gold");
-    const coldBtn = document.getElementById("cold");
-    const eco_greenBtn = document.getElementById("eco_green");
-    const new_violetBtn = document.getElementById("new_violet");
-    const varm_redBtn = document.getElementById("varm_red");
+    // const blueBtn = document.getElementById("blue");
+    // const violetBtn = document.getElementById("violet");
+    // const greenBtn = document.getElementById("green");
+    // const redBtn = document.getElementById("red");
+    // const orangeBtn = document.getElementById("orange");
+    // const goldBtn = document.getElementById("gold");
+    // const coldBtn = document.getElementById("cold");
+    // const eco_greenBtn = document.getElementById("eco_green");
+    // const new_violetBtn = document.getElementById("new_violet");
+    // const varm_redBtn = document.getElementById("varm_red");
     // const cFront = document.getElementById("card_front");
     // const cBack = document.getElementById("card_back");
 
@@ -424,17 +407,18 @@ function initColorButtons() {
         applyCardColor();
     };
 
+    document.getElementById("cold").onclick = () => {
+        selectedCardColor2 = "var(--cold)";
+        previewBack.style.background = selectedCardColor2;
+        applyCardColor();
+    };
+
     document.getElementById("gold").onclick = () => {
         selectedCardColor2 = "var(--gold)";
         previewBack.style.background = selectedCardColor2;
         applyCardColor();
     };
 
-    document.getElementById("cold").onclick = () => {
-        selectedCardColor2 = "var(--cold)";
-        previewBack.style.background = selectedCardColor2;
-        applyCardColor();
-    };
 
     document.getElementById("eco_green").onclick = () => {
         selectedCardColor2 = "var(--eco_green)";
@@ -454,3 +438,25 @@ function initColorButtons() {
         applyCardColor();
     };
 }
+
+document.addEventListener("keydown", (e) => {
+    // so that the space bar doesn't scroll the page
+    if (e.code === "Space") {
+        e.preventDefault();
+        // preventDefault() is needed to prevent the spacebar from scrolling the page.
+        // Protection against launching the game when a modal window is open.
+    }
+
+    if (e.code === "Space" || e.code === "Enter") {
+        // If the mod is open, don't start the game.
+        if (winModal.classList.contains("active")) return;
+
+        startGame();
+    }
+});
+// Close the game by pressing Esc.
+document.addEventListener("keydown", (e) => {
+    if (e.code === "Escape" && winModal.classList.contains("active")) {
+        winModal.classList.remove("active");
+    }
+});
