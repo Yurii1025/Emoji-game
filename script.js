@@ -35,7 +35,8 @@ const timerEl = document.getElementById("timer");
 const rulBtn = document.getElementById("rulesBtn");
 const menuBtn = document.getElementById("menuBtn");
 const modalM = document.getElementById("modal_content");
-let selectedCardColor = "var(--pink)"; // цвет по умолчанию
+let selectedCardColor = "var(--blue)";
+let selectedCardColor2 = "var(--gold)"; // цвет по умолчанию
 // const rBtn = document.getElementById("red");
 // const gBtn = document.getElementById("green");
 // const yBtn = document.getElementById("yellow");
@@ -78,6 +79,10 @@ function applyCardColor() {
     fronts.forEach(front => {
         front.style.background = selectedCardColor;
     });
+    const backs = document.querySelectorAll(".card_back");
+    backs.forEach(back => {
+        back.style.background = selectedCardColor2;
+    });
 }
 
 /* Launching the game */
@@ -105,7 +110,9 @@ function startGame() {
                                 <div class="card_back"></div>
                             </div>`;
         const front = cell.querySelector(".card_front");
+        const back = cell.querySelector(".card_back");
         front.style.background = selectedCardColor;
+        back.style.background = selectedCardColor2;
 
         cell.classList.remove("matched");
         cell.addEventListener("click", handleCardClick);
@@ -259,17 +266,39 @@ menuBtn.addEventListener("click", () => {
     modMess.innerHTML = `<div class="colors">
                             <h2 class="choose_color">Choose front color</h2>
                             <div class="color_btn-container">
-                                <button class="red" id="red">pink</button>
+                                <button class="blue" id="blue">blue</button>
+                                <button class="violet" id="violet">violet</button>
                                 <button class="green" id="green">green</button>
-                                <button class="yellow" id="yellow">yellow</button>
+                                <button class="red" id="red">red</button>
+                                <button class="orange" id="orange">orange</button>
                             </div>
                             <div class="cCardCont">
                                 <div class="card show">
                                     <div class="card_inner">
-                                        <div class="card_front" id="card_front">
+                                        <div class="card_front preview_front">
                                             <div class="card_text"></div>
                                         </div>
-                                    <div class="card_back"></div>
+                                    <div class="card_back preview_back"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="colors">
+                            <h2 class="choose_color">Choose back color</h2>
+                            <div class="color_btn-container">
+                                <button class="gold" id="gold">gold</button>
+                                <button class="cold" id="cold">cold</button>
+                                <button class="eco_green" id="eco_green">eco green</button>
+                                <button class="new_violet" id="new_violet">new violet</button>
+                                <button class="varm_red" id="varm_red">varm red</button>
+                            </div>
+                            <div class="cCardCont">
+                                <div class="card show is-flipped">
+                                    <div class="card_inner">
+                                        <div class="card_front preview_front">
+                                            <div class="card_text"></div>
+                                        </div>
+                                    <div class="card_back preview_back" is-flipped"></div>
                                 </div>
                             </div>
                         </div>
@@ -297,26 +326,131 @@ menuBtn.addEventListener("click", () => {
 //     });
 // }
 function initColorButtons() {
-    const rBtn = document.getElementById("red");
-    const gBtn = document.getElementById("green");
-    const yBtn = document.getElementById("yellow");
-    const cFront = document.getElementById("card_front");
+    const blueBtn = document.getElementById("blue");
+    const violetBtn = document.getElementById("violet");
+    const greenBtn = document.getElementById("green");
+    const redBtn = document.getElementById("red");
+    const orangeBtn = document.getElementById("orange");
+    const goldBtn = document.getElementById("gold");
+    const coldBtn = document.getElementById("cold");
+    const eco_greenBtn = document.getElementById("eco_green");
+    const new_violetBtn = document.getElementById("new_violet");
+    const varm_redBtn = document.getElementById("varm_red");
+    // const cFront = document.getElementById("card_front");
+    // const cBack = document.getElementById("card_back");
 
-    rBtn.addEventListener("click", () => {
-        selectedCardColor = "var(--pink)";
-        cFront.style.background = selectedCardColor;
-        applyCardColor(); // 👈 обновляем поле
-    });
+    // blueBtn.addEventListener("click", () => {
+    //     selectedCardColor = "var(--blue)";
+    //     cFront.style.background = selectedCardColor;
+    //     applyCardColor(); // 👈 обновляем поле
+    // });
 
-    gBtn.addEventListener("click", () => {
+    // violetBtn.addEventListener("click", () => {
+    //     selectedCardColor = "var(--violet)";
+    //     cFront.style.background = selectedCardColor;
+    //     applyCardColor();
+    // });
+
+    // greenBtn.addEventListener("click", () => {
+    //     selectedCardColor = "var(--green)";
+    //     cFront.style.background = selectedCardColor;
+    //     applyCardColor();
+    // });
+    // redBtn.addEventListener("click", () => {
+    //     selectedCardColor = "var(--red)";
+    //     cFront.style.background = selectedCardColor;
+    //     applyCardColor();
+    // });
+    // orangeBtn.addEventListener("click", () => {
+    //     selectedCardColor = "var(--orange)";
+    //     cFront.style.background = selectedCardColor;
+    //     applyCardColor();
+    // });
+    // goldBtn.addEventListener("click", () => {
+    //     selectedCardColor2 = "var(--gold)";
+    //     cBack.style.background = selectedCardColor2;
+    //     applyCardColor();
+    // });
+    // coldBtn.addEventListener("click", () => {
+    //     selectedCardColor2 = "var(--cold)";
+    //     cBack.style.background = selectedCardColor2;
+    //     applyCardColor();
+    // });
+    // eco_greenBtn.addEventListener("click", () => {
+    //     selectedCardColor2 = "var(--eco_green)";
+    //     cBack.style.background = selectedCardColor2;
+    //     applyCardColor();
+    // });
+    // new_violetBtn.addEventListener("click", () => {
+    //     selectedCardColor2 = "var(--new_violet)";
+    //     cBack.style.background = selectedCardColor2;
+    //     applyCardColor();
+    // });
+    // varm_redBtn.addEventListener("click", () => {
+    //     selectedCardColor2 = "var(--varm_red)";
+    //     cBack.style.background = selectedCardColor2;
+    //     applyCardColor();
+    // });
+    const previewFront = document.querySelector(".preview_front");
+    const previewBack = document.querySelector(".preview_back");
+
+    document.getElementById("blue").onclick = () => {
+        selectedCardColor = "var(--blue)";
+        previewFront.style.background = selectedCardColor;
+        applyCardColor();
+    };
+
+    document.getElementById("violet").onclick = () => {
+        selectedCardColor = "var(--violet)";
+        previewFront.style.background = selectedCardColor;
+        applyCardColor();
+    };
+
+    document.getElementById("green").onclick = () => {
         selectedCardColor = "var(--green)";
-        cFront.style.background = selectedCardColor;
+        previewFront.style.background = selectedCardColor;
         applyCardColor();
-    });
+    };
 
-    yBtn.addEventListener("click", () => {
-        selectedCardColor = "var(--yellow)";
-        cFront.style.background = selectedCardColor;
+    document.getElementById("red").onclick = () => {
+        selectedCardColor = "var(--red)";
+        previewFront.style.background = selectedCardColor;
         applyCardColor();
-    });
+    };
+
+    document.getElementById("orange").onclick = () => {
+        selectedCardColor = "var(--orange)";
+        previewFront.style.background = selectedCardColor;
+        applyCardColor();
+    };
+
+    document.getElementById("gold").onclick = () => {
+        selectedCardColor2 = "var(--gold)";
+        previewBack.style.background = selectedCardColor2;
+        applyCardColor();
+    };
+
+    document.getElementById("cold").onclick = () => {
+        selectedCardColor2 = "var(--cold)";
+        previewBack.style.background = selectedCardColor2;
+        applyCardColor();
+    };
+
+    document.getElementById("eco_green").onclick = () => {
+        selectedCardColor2 = "var(--eco_green)";
+        previewBack.style.background = selectedCardColor2;
+        applyCardColor();
+    };
+
+    document.getElementById("new_violet").onclick = () => {
+        selectedCardColor2 = "var(--new_violet)";
+        previewBack.style.background = selectedCardColor2;
+        applyCardColor();
+    };
+
+    document.getElementById("varm_red").onclick = () => {
+        selectedCardColor2 = "var(--varm_red)";
+        previewBack.style.background = selectedCardColor2;
+        applyCardColor();
+    };
 }
