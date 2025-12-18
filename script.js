@@ -267,7 +267,7 @@ menuBtn.addEventListener("click", () => {
     modMess.innerHTML = `<div class="colors">
                             <h2 class="choose_color">Choose front color</h2>
                             <div class="color_btn-container">
-                                <button class="blue" id="blue">pink</button>
+                                <button class="blue" id="blue">strange color</button>
                                 <button class="violet" id="violet">violet</button>
                                 <button class="green" id="green">green</button>
                                 <button class="red" id="red">red</button>
