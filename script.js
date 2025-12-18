@@ -265,7 +265,7 @@ rulBtn.addEventListener("click", () => {
 menuBtn.addEventListener("click", () => {
     winModal.classList.add("active");
     modMess.innerHTML = `<div class="colors">
-                            <h2 class="choose_color">Choose front color</h2>
+                            <h2 class="choose_color">Select the color of the front.</h2>
                             <div class="color_btn-container">
                                 <button class="blue" id="blue">strange color</button>
                                 <button class="violet" id="violet">violet</button>
@@ -285,7 +285,7 @@ menuBtn.addEventListener("click", () => {
                         </div>
                     </div>
                     <div class="colors">
-                            <h2 class="choose_color">Choose back color</h2>
+                            <h2 class="choose_color">Select the color of the back.</h2>
                             <div class="color_btn-container">
                                 <button class="gold" id="gold">gold</button>
                                 <button class="cold" id="cold">cold</button>
